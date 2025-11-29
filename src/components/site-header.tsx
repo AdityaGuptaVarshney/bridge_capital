@@ -33,8 +33,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
-            {/* <Image src="/bridge-logo.png" alt="Bridge Capital" width={120} height={120} priority /> */}
-            <span className="font-bold">Bridge Capital</span>
+            <Image src="/navbar-logo.png" alt="Bridge Capital" width={480} height={380} className="h-12 w-auto object-contain" priority />
           </Link>
           <nav className="hidden items-center gap-1 sm:flex">
             <HashNavLink href="/" label="Home" />
