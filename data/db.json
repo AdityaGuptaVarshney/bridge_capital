@@ -164,6 +164,13 @@
       "name": "adi",
       "email": "aditya@gmail.com",
       "walletBalance": 100000
+    },
+    {
+      "id": "user_lf4djgo",
+      "role": "investor",
+      "name": "sadfa",
+      "email": "asdfdsa@fgasdf.com",
+      "walletBalance": 100000
     }
   ],
   "loans": [
