@@ -26,6 +26,7 @@ function HashNavLink({ href, label }: { href: string; label: string }) {
 export function SiteHeader() {
   const router = useRouter();
   const { user, logout } = useAuth();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-white/90 backdrop-blur">
@@ -39,8 +40,14 @@ export function SiteHeader() {
             <HashNavLink href="/" label="Home" />
             <HashNavLink href="/#features" label="Features" />
             <HashNavLink href="/#how-it-works" label="How it works" />
-            <HashNavLink href="/#testimonials" label="Testimonials" />
-            <HashNavLink href="/#faq" label="FAQ" />
+            {user && (
+              <Link
+                href={user.role === "investor" ? "/explore/investor" : "/explore/borrower"}
+                className={`text-sm px-3 py-2 rounded-md transition-colors ${pathname.startsWith("/explore") ? "bg-zinc-100 text-zinc-900" : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"}`}
+              >
+                Explore
+              </Link>
+            )}
             {user?.role === "admin" && <Link href="/admin" className="text-sm px-3 py-2 rounded-md text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50">Admin</Link>}
           </nav>
         </div>

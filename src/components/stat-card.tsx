@@ -1,13 +1,16 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export function StatCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
+export function StatCard({ label, value, hint, icon }: { label: string; value: string; hint?: string; icon?: React.ReactNode }) {
   return (
     <Card>
-      <CardHeader>
-        <CardDescription>{label}</CardDescription>
-        <CardTitle className="text-2xl">{value}</CardTitle>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium text-zinc-500">{label}</CardTitle>
+        {icon}
       </CardHeader>
-      {hint && <CardContent className="text-sm text-zinc-500">{hint}</CardContent>}
+      <CardContent>
+        <div className="text-2xl font-bold">{value}</div>
+        {hint && <p className="text-xs text-zinc-500">{hint}</p>}
+      </CardContent>
     </Card>
   );
 }
