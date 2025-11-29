@@ -13,6 +13,9 @@ export interface InvestorProfile extends UserBase {
   pan?: string;
   investmentRange?: string;
   riskAppetite?: "low" | "medium" | "high";
+  location?: string;
+  portfolioCount?: number;
+  totalInvested?: number;
 }
 
 export interface BorrowerProfile extends UserBase {
@@ -20,6 +23,10 @@ export interface BorrowerProfile extends UserBase {
   businessName?: string;
   category?: string;
   loanPurpose?: string;
+  location?: string;
+  revenueRange?: string;
+  yearsInBusiness?: number;
+  rating?: number;
 }
 
 export type User = InvestorProfile | BorrowerProfile | (UserBase & { role: "admin" });
