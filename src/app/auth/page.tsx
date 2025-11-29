@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/auth-context";
 
+import { toast } from "sonner";
+
 export default function AuthPage() {
   const router = useRouter();
   const { user, setUser } = useAuth();
@@ -26,7 +28,7 @@ export default function AuthPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, role }),
     });
-    if (!res.ok) return alert("Signup failed");
+    if (!res.ok) return toast.error("Signup failed");
     const u = await res.json();
     localStorage.setItem("bb_user_id", u.id);
     localStorage.setItem("bb_user_email", u.email);
@@ -40,7 +42,7 @@ export default function AuthPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
     });
-    if (!res.ok) return alert("Login failed");
+    if (!res.ok) return toast.error("Login failed");
     const u = await res.json();
     localStorage.setItem("bb_user_id", u.id);
     localStorage.setItem("bb_user_email", u.email);

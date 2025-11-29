@@ -31,7 +31,7 @@ export default function BorrowerDashboard() {
 
   const requestLoan = async () => {
     const res = await fetch("/api/loans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ borrowerId: user?.id, amountRequested, durationMonths, purpose }) });
-    if (!res.ok) return alert("Request failed");
+    if (!res.ok) return toast.error("Request failed");
     refresh();
     toast.success("Loan request submitted");
   };

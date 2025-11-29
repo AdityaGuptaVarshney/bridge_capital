@@ -39,7 +39,7 @@ export default function InvestorDashboard() {
   const investNow = async () => {
     if (!user) return;
     const res = await fetch("/api/pool/invest", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ investorId: user.id, amount }) });
-    if (!res.ok) return alert("Investment failed");
+    if (!res.ok) return toast.error("Investment failed");
     const data = await res.json();
     setPool(data.pool);
     setUser(data.investor);
